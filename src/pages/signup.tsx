@@ -7,12 +7,12 @@ import { z } from "zod";
 interface SignupPageProps {}
 
 const SignupSchema = z.object({
-  email: z.string().email("Enter a real email please."),
-  password: z.string(),
-  address: z.string(),
-  age: z.number().min(18, "You must be 18 or older to sign up."),
-  acceptCgu: z.boolean().optional(),
-  acceptNewsletter: z.boolean().optional(),
+  email: z.string().email("Enter a real email please.").describe("Email"),
+  password: z.string().describe("Password"),
+  address: z.string().describe("Address"),
+  age: z.number().min(18, "You must be 18 or older to sign up.").describe("Age"),
+  acceptCgu: z.boolean().optional().describe("Accepter les CGU"),
+  acceptNewsletter: z.boolean().optional().describe("Accepter la newsletter"),
 });
 
 const SignupPage = ({}: SignupPageProps) => {
@@ -29,26 +29,6 @@ const SignupPage = ({}: SignupPageProps) => {
         }}
         formProps={{
           sendText: "S'inscrire",
-        }}
-        props={{
-          email: {
-            label: "Email",
-          },
-          password: {
-            label: "Password",
-          },
-          address: {
-            label: "Addresse",
-          },
-          age: {
-            label: "Âge",
-          },
-          acceptCgu: {
-            label: "Accepter les CGU",
-          },
-          acceptNewsletter: {
-            label: "Accepter la newsletter",
-          },
         }}
       />
     </Centered>

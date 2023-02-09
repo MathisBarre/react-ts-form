@@ -1,15 +1,15 @@
-import { useTsController } from "@ts-react/form";
+import { useDescription, useTsController } from "@ts-react/form";
 import React from "react";
 
-interface CheckboxProps {
-  label: string;
-}
+interface CheckboxProps {}
 
-const Checkbox = ({ label }: CheckboxProps) => {
+const Checkbox = ({}: CheckboxProps) => {
   const {
     field: { value },
     error,
   } = useTsController<boolean>();
+
+  const { label } = useDescription();
 
   return (
     <>
@@ -30,7 +30,7 @@ const Checkbox = ({ label }: CheckboxProps) => {
         ></input>
         <span>{label}</span>
       </label>
-        
+
       {error && <div style={{ color: "red" }}>{error.errorMessage}</div>}
     </>
   );

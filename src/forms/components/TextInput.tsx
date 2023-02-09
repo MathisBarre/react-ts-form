@@ -1,15 +1,15 @@
-import { useTsController } from "@ts-react/form";
+import { useDescription, useTsController } from "@ts-react/form";
 import React from "react";
 
-interface TextInputProps {
-  label: string;
-}
+interface TextInputProps {}
 
-const TextInput = ({ label }: TextInputProps) => {
+const TextInput = ({}: TextInputProps) => {
   const {
     field: { value, onChange },
     error,
   } = useTsController<string>();
+
+  const { label } = useDescription();
 
   return (
     <div>

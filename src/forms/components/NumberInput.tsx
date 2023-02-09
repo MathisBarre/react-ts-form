@@ -1,15 +1,15 @@
-import { useTsController } from "@ts-react/form";
+import { useDescription, useTsController } from "@ts-react/form";
 import React from "react";
 
-interface NumberInputProps {
-  label: string;
-}
+interface NumberInputProps {}
 
-const NumberInput = ({ label }: NumberInputProps) => {
+const NumberInput = ({}: NumberInputProps) => {
   const {
     field: { value, onChange },
     error,
   } = useTsController<number>();
+
+  const { label } = useDescription();
 
   return (
     <div>
